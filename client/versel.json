@@ -1,8 +1,9 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
+  "routes": [
+    { "src": "/", "dest": "/" },
+    { "src": "/main", "dest": "/" },
+    { "src": "/userLoan", "dest": "/" },
+     { "src": "/userDeposit", "dest": "/" }
+ 
   ]
 }
