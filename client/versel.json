@@ -1,9 +1,5 @@
+
+
 {
-  "routes": [
-    { "src": "/", "dest": "/" },
-    { "src": "/main", "dest": "/" },
-    { "src": "/userLoan", "dest": "/" },
-     { "src": "/userDeposit", "dest": "/" }
- 
-  ]
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
 }
