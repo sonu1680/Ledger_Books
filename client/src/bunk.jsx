@@ -14,7 +14,7 @@ function BunkAttendance() {
     setAlert(""); // Clear the input field after adding
     document.getElementById("my_modal_4").close(); // Close the modal
     const res = await apiClient.post(SETNOTIFICATION, { title: alert });
-    console.log(res);
+   // console.log(res);
   };
 
   const getNotification = async () => {
