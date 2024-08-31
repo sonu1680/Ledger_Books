@@ -10,11 +10,11 @@ import UserDetailsLoan from "./UserDetailsLoan";
 import UserDetailsDeposit from "./UserDetailsDeposit";
 import MainPage from "./mainPage";
 import LoginPage from "./loginPage";
-import useUserStore from "../library/zustand"; // Import Zustand store
+import useUserStore from "../library/zustand"; 
 
-// ProtectedRoute Component
+
 function ProtectedRoute({ children }) {
-  const { isLoggedIn } = useUserStore(); // Zustand state
+  const { isLoggedIn } = useUserStore(); 
   const [isInitialized, setIsInitialized] = useState(false);
   const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ function ProtectedRoute({ children }) {
       if (storedIsLoggedIn) {
         const parsedData = JSON.parse(storedIsLoggedIn);
         if (parsedData.state.isLoggedIn) {
-          setIsInitialized(true); // Mark as initialized only if user is logged in
+          setIsInitialized(true); 
         } else {
           navigate("/");
         }
@@ -37,10 +37,10 @@ function ProtectedRoute({ children }) {
   }, [navigate]);
 
   if (!isInitialized) {
-    return null; // Or a loading spinner, if necessary
+    return null;
   }
 
-  return children; // Render the children if logged in
+  return children; 
 }
 
 function App() {
