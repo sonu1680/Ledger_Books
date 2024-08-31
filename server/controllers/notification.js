@@ -9,7 +9,7 @@ console.log(req.body);
 
 const getNotification = async (req, res) => {
   const res1 = await notificationModel.find({});
-  console.log(res1);
+  //console.log(res1);
   return res.status(201).json({ msg: "all notification",res1 });
 };
 
