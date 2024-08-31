@@ -17,7 +17,7 @@ function UserDetailsDeposit() {
    const getUserTrxID = async () => {
      try {
        const res = await apiClient.get(`${DEPOSITTRX}/${id} `);
-       console.log(res.data.userTrx);
+       //console.log(res.data.userTrx);
        setData(res.data.userTrx.transactions);
        setUserdetails({
          userName: res.data.userTrx.name,

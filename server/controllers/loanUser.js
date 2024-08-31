@@ -20,12 +20,13 @@ const createloanUser = async (req, res) => {
 const setloanTranscation = async (req, res) => {
   try {
     const { id } = req.params;
-    const { amount, transactionType, date, time, notes } = req.body;
+    const { amount, transactionType, date, time, notes,intrest } = req.body;
+    //console.log(intrest);
     const user = await loanModel.findById(id);
     if (!user) {
       return res.status(401).json({ msg: "no user found" });
     }
-    console.log(user);
+    //console.log(user);
     if (transactionType == "credit") {
       user.balance = parseInt(user.balance) + parseInt(amount);
     } else {
@@ -38,6 +39,7 @@ const setloanTranscation = async (req, res) => {
       date,
       time,
       notes,
+      intrest
     });
     await user.save();
     return res.status(201).json({ msg: "transcation added", user });

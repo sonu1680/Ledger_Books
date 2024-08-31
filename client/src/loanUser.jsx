@@ -130,6 +130,8 @@ function LoanUser() {
                   type="text"
                   name="phone"
                   placeholder="Enter Phone No."
+                  minLength={7}
+                  maxLength={12}
                   className="input input-bordered w-full max-w-xs h-10"
                   onChange={handleChange}
                   value={formData.phone}

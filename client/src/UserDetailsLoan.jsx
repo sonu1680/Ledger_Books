@@ -55,7 +55,7 @@ function UserDetailsLoan() {
         `${LOANTRANSCATIONPUSH}/${id}`,
         formData
       );
-      console.log(res);
+      //console.log(res);
       if (formData.transactionType == "credit") {
         setLoanBalance(loanbalance + parseInt(formData.amount));
       } else {
@@ -158,7 +158,10 @@ const[userDetail,setUserdetail]=useState({userName:"",userBalance:"",userPhone:"
                 <p className="note">{item.note} </p>
               </div>
               <div className="right w-1/2 h-full flex flex-col justify-center items-center gap-y-2  ">
-                <p className="interest text-sm "> InterestRate :0% </p>
+                <p className="interest text-sm ">
+                  {" "}
+                  InterestRate :{item.intrest} %{" "}
+                </p>
                 <p className="amount"> ₹{item.amount} </p>
               </div>
             </div>
@@ -194,19 +197,22 @@ const[userDetail,setUserdetail]=useState({userName:"",userBalance:"",userPhone:"
                       onChange={handleChange}
                     />
                   </label>
-                  <label className="form-control w-full max-w-xs">
-                    <div className="label">
-                      <span className="label-text">IntrestRate</span>
-                    </div>
-                    <input
-                      type="number"
-                      name="intrest"
-                      placeholder="Intrest Rate"
-                      className="input input-bordered w-full max-w-xs h-10 text-xs"
-                      value={formData.intrest}
-                      onChange={handleChange}
-                    />
-                  </label>
+                  {debitOrCredit == "debit" && (
+                    <label className="form-control w-full max-w-xs">
+                      <div className="label">
+                        <span className="label-text">IntrestRate</span>
+                      </div>
+
+                      <input
+                        type="number"
+                        name="intrest"
+                        placeholder="Intrest Rate"
+                        className="input input-bordered w-full max-w-xs h-10 text-xs"
+                        value={formData.intrest}
+                        onChange={handleChange}
+                      />
+                    </label>
+                  )}
                   <label className="form-control w-full max-w-xs">
                     <div className="label">
                       <span className="label-text">Notes</span>

@@ -20,6 +20,9 @@ const transactionSchema = new mongoose.Schema({
   notes: {
     type: String,
   },
+  intrest: {
+    type: String,
+  },
 });
 
 const loanUserSchema = new mongoose.Schema({

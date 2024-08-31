@@ -12,9 +12,9 @@ const MainPage = () => {
   ];
 
   const [totalBalance, setTotalbalance] = useState({
-    depositbalance: "",
-    loanalance: "",
-    currentFund: "",
+    depositbalance:0 ,
+    loanbalance :0,
+    currentFund:0 ,
   });
 
   const btnClick = (id) => {
@@ -30,8 +30,8 @@ const MainPage = () => {
           parseInt(res.data.totalDepositBalance) -
           parseInt(res.data.totalLoanBalance);
         setTotalbalance({
-          depositbalance: res.data.totalDepositBalance,
-          loanalance: res.data.totalLoanBalance,
+          depositbalance: parseInt(res.data.totalDepositBalance),
+          loanbalance: parseInt(res.data.totalLoanBalance),
           currentFund: currentFunds,
         });
         // console.log(res.data);
@@ -44,8 +44,8 @@ const MainPage = () => {
 
   return (
     <>
-      <div className="main w-[550px]  md:w-full h-[100vh] flex   justify-center  flex-col items-center md:flex-row md:items-start  ">
-        <div className="conatiner  h-full w-[500px] bg-gray-900   flex justify-center items-center flex-col p-2 lg:pb-10 lg:pt-10  border-2 border-white rounded-xl  ">
+      <div className="main w-screen bg-red-400  md:w-full h-[100vh] flex   justify-center  flex-col items-center md:flex-row md:items-start  ">
+        <div className="conatiner  h-full w-screen md:w-[450px] bg-gray-900   flex justify-center items-center flex-col p-2 lg:pb-10 lg:pt-10  border-2 border-white rounded-xl  ">
           <div className="walletAndlist w-full h-58  ">
             <div className="wallet w-full h-24  flex justify-between  gap-x-4 cursor-pointer ">
               <div className="totoalbalance w-2/6 h-20 bg-gray-900 border-2  border-gray-200 rounded-md flex flex-col justify-center items-center ">
@@ -54,11 +54,16 @@ const MainPage = () => {
               </div>
               <div className="totoalbalance w-2/6 h-20 bg-gray-900 border-2 border-gray-200 rounded-md flex flex-col justify-center items-center">
                 <p className="text"> Loan Funds</p>
-                <p className="fund"> ₹ {totalBalance.loanalance}</p>
+                <p className="fund">
+                  ₹{totalBalance.loanbalance - 2 * totalBalance.loanbalance}
+                </p>
               </div>{" "}
               <div className="totoalbalance w-2/6 h-20 bg-gray-900 border-2 border-gray-200 rounded-md flex flex-col justify-center items-center">
                 <p className="text"> Current Funds</p>
-                <p className="fund"> ₹ {totalBalance.loanalance}</p>
+                <p className="fund">
+                  {" "}
+                  ₹ {totalBalance.depositbalance+totalBalance.loanbalance}
+                </p>
               </div>{" "}
             </div>
             <div className="selection w-full h-10  flex justify-between">
